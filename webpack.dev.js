@@ -5,14 +5,24 @@ const path = require("path");
 
 module.exports = merge(common, {
   mode: "development",
-  // output: {
-  //   filename: "main.js",
-  //   path: path.resolve(__dirname, "dist")
-  // },
   module: {
     rules: [
       {
-        test: /\.s[ac]ss$/i,
+        test: /\.module\.s(a|c)ss$/,
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              modules: true
+            }
+          },
+          "sass-loader"
+        ]
+      },
+      {
+        test: /\.s(a|c)ss$/,
+        exclude: /\.module\.s(a|c)ss$/,
         use: ["style-loader", "css-loader", "sass-loader"]
       }
     ]

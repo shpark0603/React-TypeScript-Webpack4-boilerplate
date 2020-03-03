@@ -15,17 +15,22 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
-        test: /\.s[ac]ss$/i,
+        test: /\.module\.s(a|c)ss$/,
         use: [
+          MiniCssExtractPlugin.loader,
           {
-            loader: MiniCssExtractPlugin.loader,
+            loader: "css-loader",
             options: {
-              esModule: true
+              modules: true
             }
           },
-          "css-loader",
           "sass-loader"
         ]
+      },
+      {
+        test: /\.s(a|c)ss$/,
+        exclude: /\.module\.s(a|c)ss$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
       }
     ]
   },
@@ -45,7 +50,8 @@ module.exports = merge(common, {
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: "main.[hash].css"
+      filename: "[name].[hash].css",
+      chunkFilename: "[id].[hash].css"
     })
   ]
 });

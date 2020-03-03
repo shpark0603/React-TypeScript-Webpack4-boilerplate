@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import reactLogo from "../images/react.svg";
 import tsLogo from "../images/typescript.svg";
-import "./SayHi.scss";
+import styles from "./SayHi.module";
 
 interface IProps {
   name: string;
@@ -11,8 +11,11 @@ function SayHi({ name }: IProps) {
   return (
     <div>
       <h1>Hello! {name}</h1>
-      <img src={reactLogo} alt="React" />
-      <img src={tsLogo} alt="TypeScript" />
+      <img
+        className={styles.img_round}
+        src={name === "React" ? reactLogo : name === "TypeScript" ? tsLogo : ""}
+        alt="React"
+      />
     </div>
   );
 }
