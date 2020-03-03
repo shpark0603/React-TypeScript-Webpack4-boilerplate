@@ -1,14 +1,14 @@
 {
-  "name": "react-typescript",
+  "name": "react-typescript-webpack4-boilerplate",
   "version": "1.0.0",
-  "description": "",
+  "description": "Boilerplate for react + typescript",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Sanghyun Park",
+  "license": "MIT",
   "dependencies": {
     "react": "^16.13.0",
     "react-dom": "^16.13.0"
