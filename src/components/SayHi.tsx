@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import reactLogo from "../images/react.svg";
 import tsLogo from "../images/typescript.svg";
-import styles from "./SayHi.module";
+import styles from "./SayHi.module.scss";
 
 interface IProps {
   name: string;
